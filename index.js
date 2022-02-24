@@ -71,10 +71,7 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    if (this.count > 0) {
-      return this.count--
-    }
-    return this.count 
+    return this.count > 0 ? this.count-- : 0
   }
 }
 
@@ -83,7 +80,8 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.seasons = ['summer', 'fall', 'winter', 'spring']
+    this.currentSeason = 0
   }
 
   /**
@@ -99,7 +97,13 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    const result = this.seasons[this.currentSeason]
+    if (this.currentSeason === 3) {
+      this.currentSeason = 0
+    } else {
+      ++this.currentSeason
+    }
+    return result
   }
 }
 
