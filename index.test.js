@@ -2,13 +2,17 @@ const utils = require('./index')
 
 describe('[Exercise 1] trimProperties', () => {
   test('[1] returns an object with the properties trimmed', () => {
-    // EXAMPLE
-    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
-    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
+    const input = { name: '  susan  ', hobbies: ' fishing ' }
+    const expected = { name: 'susan', hobbies: 'fishing' }
     const actual = utils.trimProperties(input)
     expect(actual).toEqual(expected)
   })
-  // test('[2] returns a copy, leaving the original object intact', () => {})
+  test('[2] returns a copy, leaving the original object intact', () => {
+    const input = { name: '  susan  ', hobbies: ' fishing ' }
+    utils.trimProperties(input)
+    expect(input).toEqual({ name: '  susan  ', hobbies: ' fishing ' })
+
+  })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
